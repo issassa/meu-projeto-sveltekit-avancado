@@ -3,13 +3,12 @@
   </script>
   
   <h3>Posts</h3>
-  <p><strong>Nome:</strong> {data.post.name}</p>
-  <p><strong>Comentários:</strong> {data.post.comments}</p>
+  <p><strong>Título:</strong> {data.post.title}</p>
   
   <h3>Comentários das postagens</h3>
   <ul>
     {#each data.comments as comment}
-      <li><a href="/03/external/comments/{comment.id}">{comment.title}</a></li>
+      <li><a href="/03/external/comments/{comment.id}">{comment.name}{comment.email}{comment.body}</a></li>
     {:else}
       <p>Esse post não existe ainda!</p>
     {/each}

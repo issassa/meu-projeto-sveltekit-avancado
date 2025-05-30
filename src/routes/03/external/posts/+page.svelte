@@ -2,9 +2,10 @@
     let { data } = $props();
   </script>
   
-  <h3>Usuários</h3>
+  <h3>Postagens</h3>
   <ul>
-    {#each data.users as user}
-      <li><a href="/03/external/users/{user.id}">{user.name}</a></li>
+    {#each data.posts as posts}
+      <li><a href="/03/external/posts/{posts.id}">{posts.title}</a></li>
     {/each}
   </ul>
+  oi
