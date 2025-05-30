@@ -8,4 +8,4 @@
       <li><a href="/03/external/posts/{posts.id}">{posts.title}</a></li>
     {/each}
   </ul>
-  oi
+  oiiiii
