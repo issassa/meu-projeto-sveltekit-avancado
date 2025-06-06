@@ -2,12 +2,12 @@
   let { data } = $props();
 </script>
 
-<h2>Detalhes do Usuário</h2>
+<h2>Sobre o usuário:</h2>
   <p><strong>Nome:</strong> {data.user.firstName} {data.user.lastName}</p>
   <p><strong>Email:</strong> {data.user.email}</p>
 
 
-<h3>Postagens do Usuário</h3>
+<h3>Postagens do usuário</h3>
   <ul>
     {#each data.posts as post}
       <li>
