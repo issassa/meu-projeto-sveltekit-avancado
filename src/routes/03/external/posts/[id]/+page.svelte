@@ -2,20 +2,20 @@
   let { data } = $props();
 </script>
 
-<h3>Postagem - dados</h3>
+<br>
+<h3>Postagem</h3>
+<p>• Dados da Postagem:</p>
 {#if data.post}
-  <h4>{data.post.title}</h4>
-  <p>{data.post.body}</p>
-{:else}
-  <p>Postagem não encontrada.</p>
+  <p><b>→ Título da Postagem:</b> {data.post.title}.</p>
+  <p><b>→ Conteúdo da Postagem:</b> {data.post.body}.</p>
 {/if}
 
+<br>
 <h3>Comentários</h3>
     {#each data.comments as comment}
       <li>
-        <strong>{comment.email}</strong>: {comment.body}
+        <b>{comment.email}</b>: {comment.body}.
       </li>
     {/each}
-  <p>Não há comentários.</p>
-
+<br>
 <p><a href="/03/external/users">voltar aos usuários</a></p>
