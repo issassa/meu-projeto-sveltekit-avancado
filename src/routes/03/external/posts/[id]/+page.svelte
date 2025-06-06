@@ -1,19 +1,21 @@
 <script>
-    let { data } = $props();
-  </script>
-  
-  <h3>Posts</h3>
-  <p><strong>Título:</strong> {data.post.title}</p>
-  <p><strong>Conteúdo:</strong> {data.post.body}</p>
+  let { data } = $props();
+</script>
 
-  <h3>Comentários das postagens</h3>
-  <ul>
+<h3>Postagem - dados</h3>
+{#if data.post}
+  <h4>{data.post.title}</h4>
+  <p>{data.post.body}</p>
+{:else}
+  <p>Postagem não encontrada.</p>
+{/if}
+
+<h3>Comentários</h3>
     {#each data.comments as comment}
-      <li><a href="/03/external/comments/{comment.id}">{comment.name}</a></li>
-    {:else}
-      <p>Esse post não existe ainda!</p>
+      <li>
+        <strong>{comment.email}</strong>: {comment.body}
+      </li>
     {/each}
-  </ul>
-  <p>
-    <a href="/03/external/posts">Voltar aos posts</a>
-  </p>
+  <p>Não há comentários.</p>
+
+<p><a href="/03/external/users">voltar aos usuários</a></p>
