@@ -1,7 +1,7 @@
 
-import { fail, redirect } from '@sveltejs/kit';
+/**import { fail, redirect } from '@sveltejs/kit';
 
-/** retorna true se o texto contem pelo menos um dos caracteres */
+/** retorna true se o texto contem pelo menos um dos caracteres 
 function contem(texto, caracteres) {
     for (const caractere of caracteres) {
         if (texto.includes(caractere)) return true;
@@ -17,7 +17,7 @@ export const actions = {
         email: data.get('email'),
         nascimento: data.get('nascimento'), 
         senha: data.get('senha'),
-        confirmacaosenha = data.get('confirmacaosenha'), erros: []
+        confirmacaosenha: data.get('confirmacaosenha'), erros: []
     }
 
     if (!dados.nome || !dados.email || !dados.nascimento || !dados.senha || !dados.confirmacaosenha) dados.erros.push('Preencha todos os campos.');
@@ -40,3 +40,4 @@ export const actions = {
     redirect(303, '/06/profile');
   }
 };
+*/
