@@ -1,0 +1,1 @@
+<h2>Bem-vindo! Agora você é um <b>Artesão.</b></h2>
