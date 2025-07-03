@@ -1,4 +1,5 @@
 <script>
+  // Obtém os dados (users) passados pela função `load` do servidor.
   let { data } = $props();
 </script>
 

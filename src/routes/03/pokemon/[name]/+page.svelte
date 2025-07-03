@@ -1,4 +1,5 @@
 <script>
+  // Obtém os dados (pokemon ou error) passados pela função `load` do servidor.
   let { data } = $props();
 </script>
 
@@ -55,7 +56,7 @@
     max-width: 200px;
     height: auto;
     margin-bottom: 20px;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
     border-radius: 5px;
   }
   .pokemon-details p {

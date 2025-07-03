@@ -1,4 +1,5 @@
 <script>
+  // Obtém os dados (pokemons) passados pela função `load` (seja do `+page.server.js` ou `+page.js`).
   let { data } = $props();
 </script>
 
