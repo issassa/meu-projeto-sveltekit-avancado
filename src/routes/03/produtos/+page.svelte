@@ -1,59 +1,69 @@
+
 <script>
-
-import { produtos } from '$lib/server/03/produtos.js';
-
-/**
-     * Função para filtrar as categoriass do dicionário com base no que o usuário digitou.
-     * Ela é chamada a cada vez que o input de busca é alterado.
-     */
-    function buscar() {
-        // Se o campo de busca 'categorias' estiver vazio (ou apenas com espaços em branco após o trim),
-        // redefine 'produtosFiltrados' para mostrar todas as produtoss do dicionário.
-        if (categorias.trim() === '') { // Adicionado .trim() para considerar espaços em branco.
-            produtosFiltrados = produtos;
-            return; // Sai da função.
-        }      
-
-        // Zera o array de categoriass produtosFiltrados para preenchê-lo com os novos resultados.
-        produtosFiltrados = [];
-        // Itera sobre cada 'termo' (objeto de categorias) no dicionário completo.
-        for (const termo of produtos) {
-            // Verifica se a propriedade 'categorias' do termo atual começa com o texto digitado em 'categorias'.
-            // '.toLowerCase()' é usado para uma busca que não diferencia maiúsculas de minúsculas.
-            if (termo.categorias.toLowerCase().startsWith(categorias.toLowerCase())) {
-                // Se a condição for verdadeira, adiciona o termo ao array 'produtosFiltrados'.
-                produtosFiltrados.push(termo);
-            }
-        }
-    }
-
+    // inicial - lista de categorias
+    // Poderíamos importar as categorias aqui para listar,
+    // mas para este exemplo, vamos simplificar.
+    const categorias = [
+        { nome: 'Informática', slug: 'informatica' },
+        { nome: 'Telefonia', slug: 'telefonia' },
+        { nome: 'Áudio', slug: 'audio' },
+        { nome: 'Televisores', slug: 'televisores' }
+    ];
 </script>
 
-<br />
-<div class="card mb-3" style="width: 21rem;">
-    <div class="card-body text-center">
-        <h2 class="card-title"><b>Produtos</b></h2>
-        <br />
-        <div class="input-group mb-3">
-            <input
-                class="form-control"
-                placeholder="digite uma produtos..."
-                aria-label="produtos"
-                aria-describedby="button-addon2"
-                oninput={buscar}            />
-        </div>
-        
-        <h5 class="card-title"><b>Lista de produtos </b></h5>
+<div class="container my-5">
+    <h1 class="mb-4">Nossas Categorias de Produtos</h1>
+    <p class="lead">Selecione uma categoria para ver os produtos disponíveis.</p>
 
-        {#each produtosFiltrados as termo}
-            <p><a href="/produtos/{termo.produtos}">{termo?.produtos}</a></p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4">
+        {#each categorias as categoria}
+            <div class="col">
+                <a href="/03/produtos/{categoria.slug}" class="card h-100 shadow-sm text-decoration-none">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h5 class="card-title text-center">{categoria.nome}</h5>
+                        <p class="card-text text-center text-muted">Ver todos os produtos de {categoria.nome.toLowerCase()}</p>
+                    </div>
+                </a>
+            </div>
         {/each}
     </div>
+    <hr class="my-5">
+    <p class="text-center text-muted">Ou acesse diretamente:</p>
+    <ul class="list-unstyled text-center">
+        <li><a href="/03/produtos/informatica">/03/produtos/informatica</a></li>
+        <li><a href="/03/produtos/telefonia">/03/produtos/telefonia</a></li>
+        <li><a href="/03/produtos/audio">/03/produtos/audio</a></li>
+        <li><a href="/03/produtos/televisores">/03/produtos/televisores</a></li>
+    </ul>
 </div>
 
-<h2><b>Produtos</b></h2>
-<ul>
-  {#each data.produtos as produto}
-    <li><a href="/03/produtos/{produto.id}">{produto.titulo}</a></li>
-  {/each}
-</ul>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<style>
+    .container {
+        max-width: 960px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .lead {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        border: 1px solid #dee2e6;
+    }
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+    .card-title {
+        font-weight: bold;
+        color: #007bff;
+    }
+    .text-decoration-none {
+        text-decoration: none;
+    }
+</style>
